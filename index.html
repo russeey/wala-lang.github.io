@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ambot unsa</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(45deg, #4b0082, #000);
+    }
+    
+    .container {
+      background-color: rgb(220, 189, 224);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      text-align: center;
+    }
+    
+    h1 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+    
+    .input-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    
+    .input-container input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+      width: 70%;
+    }
+    
+    .input-container button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 4px;
+      background-color: #451e69;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .output-box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      background-color: #f9f9f9;
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+    
+    .output-box p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    
+    .copy-button {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .copy-button button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 4px;
+      background-color: #451e69;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Ge buhat kuni kiy ge kapoy nakog type sa 🤸</h1>
+    <div class="input-container">
+      <input type="text" id="inputText" placeholder="Enter text with spaces">
+      <button onclick="convertSpaces()">Convert</button>
+    </div>
+    <div class="output-box">
+      <p id="output"></p>
+    </div>
+    <div class="copy-button">
+      <button onclick="copyToClipboard()">Copy to Clipboard</button>
+    </div>
+  </div>
+  
+  <script>
+    function convertSpaces() {
+      var input = document.getElementById("inputText").value;
+      var output = input.replace(/ /g, "🤸");
+      document.getElementById("output").textContent = output;
+    }
+    
+    function copyToClipboard() {
+      var outputText = document.getElementById("output").textContent;
+      
+      var tempInput = document.createElement("textarea");
+      tempInput.value = outputText;
+      document.body.appendChild(tempInput);
+      
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+      
+      alert("Text copied to clipboard!");
+    }
+  </script>
+</body>
+</html>
